@@ -13,4 +13,4 @@ def map():
 
 @bp.route('/stations')
 def stations():
-    return jsonify({"message": {"data": [[5, 10, 'high32'], [15, 45, 'high64'], [1, 1, 'station'], [56, 62, 'station']]}})
+    return jsonify({"message": {"data": [{"x": 5, "y": 10, "type": 'high32'}, {"x": 15, "y": 45, "type": 'high64'}, {"x": 1, "y": 1, "type": 'station'}, {"x": 56, "y": 62, "type": 'station'}]}})
