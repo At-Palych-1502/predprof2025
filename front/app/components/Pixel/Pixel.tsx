@@ -5,7 +5,8 @@ import Styles from "./Pixel.module.css";
 
 interface Props {
     value: number,
-    id: string
+    id: string,
+    object?: "station" | "high32" | "high64"
 }
 
 export default function Pixel(props: Props) {
@@ -25,12 +26,24 @@ export default function Pixel(props: Props) {
         }
 
         if (element) {
-            
             element.style.backgroundColor = color;
+
+            if (props.object == "high32") {
+                const high = document.getElementById(`${props.id}_high`) as HTMLElement;
+                const temp = element.getBoundingClientRect();
+                
+                high.style.top = `${temp.y - 320}px`;
+                high.style.left = `${temp.x - 320}px`;
+            }
         }
-    })
+    }, [])
 
     return (
-        <div id={props.id} className={Styles.main}></div>
+        <>
+        <div id={props.id} className={Styles.main}>{props.object && (<img className={Styles.img} alt="h" src={props.object == "station" ? "/station.png" : "/high.png"} />)}</div>
+        {(props.object == "high32" || props.object == "high64") && (
+            <div id={`${props.id}_high`} className={Styles[props.object]}></div>
+        )}
+        </>
     )
 }

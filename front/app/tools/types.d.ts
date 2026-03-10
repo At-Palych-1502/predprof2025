@@ -8,7 +8,7 @@ export interface IMap {
 interface IStation {
     x: number,
     y: number,
-    is32: boolean
+    type: "station" | "high32" | "high64"
 }
 
 export interface IStations {

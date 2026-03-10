@@ -7,13 +7,13 @@ const data1 = JSON.parse(`
 const data2: IStations = {
     message: {
         data: [
-            {x: 12, y: 20, is32: true},
-            {x: 24, y: 34, is32: true},
-            {x: 102, y: 56, is32: false},
-            {x: 57, y: 87, is32: false},
-            {x: 140, y: 120, is32: false},
-            {x: 38, y: 157, is32: true},
-            {x: 250, y: 250, is32: true},
+            {x: 12, y: 20, type: "station"},
+            {x: 24, y: 34, type: "station"},
+            {x: 102, y: 56, type: "station"},
+            {x: 57, y: 87, type: "station"},
+            {x: 140, y: 120, type: "station"},
+            {x: 38, y: 157, type: "station"},
+            {x: 250, y: 250, type: "station"},
         ]
     }
 }
