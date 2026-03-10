@@ -1,0 +1,19 @@
+.main{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.img{
+    width: 20px;
+    height: 20px;
+}
+
+.high32 {
+    top: 20px;
+    position: absolute;
+    width: 640px;
+    height: 640px;
+    border-radius: 1000px;
+    border: 1px solid red;
+}
