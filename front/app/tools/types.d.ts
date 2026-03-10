@@ -1,8 +1,18 @@
-interface IMessage {
-    data: number[][]
-}
-
 export interface IMap {
-    message: IMessage,
+    message: {
+        data: number[][]
+    },
     status: string
 }
+
+interface IStation {
+    x: number,
+    y: number,
+    is32: boolean
+}
+
+export interface IStations {
+    message: {
+        data: IStation[]
+    }
+}   
