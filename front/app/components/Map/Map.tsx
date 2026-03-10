@@ -2,16 +2,25 @@
 
 import { useEffect, useState } from "react";
 import Styles from "./Map.module.css";
-import { getMap } from "@/app/tools/mock";
 import { IMap } from "@/app/tools/types";
 import Pixel from "../Pixel/Pixel";
+import { getMap } from "@/app/tools/api";
 
 export default function Map() {
     const [map, setMap] = useState<IMap>();
+    const [error, setError] = useState("");
 
     useEffect(() => {
-        const map = getMap();
-        setMap(map);
+        async function foo() {
+            const response = await getMap();
+            if (response.isOk) {
+                setMap(response.data);
+                console.log(response.data);
+            } else {
+                setError(response.error ?? "");
+            }
+        }
+        foo();
     }, [])
 
     return (
@@ -27,6 +36,9 @@ export default function Map() {
                     </div>
                 )
             })}
+            {error && (
+                <h2>{error}</h2>
+            )}
         </section>
     )
 }
